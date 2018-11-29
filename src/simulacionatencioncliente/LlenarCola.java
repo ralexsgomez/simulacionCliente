@@ -2,6 +2,8 @@
 package simulacionatencioncliente;
 
 import java.awt.Dimension;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Queue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,12 +17,13 @@ import javax.swing.JPanel;
  */
 public class LlenarCola implements Runnable{
     
-    private Queue<Cliente> colaCliente;
+    private ArrayList<Cliente> colaCliente;
+    private ArrayList<Cliente> colaClienteCurrent = new ArrayList<>();
     private JPanel contenedorClientes;
     private int cantidadUsuarios;
     ImageIcon user = new ImageIcon(getClass().getResource("/img/user.jpeg"));
 
-    public LlenarCola(Queue<Cliente> colaCliente, JPanel contenedorClientes, int cantidadUsuarios) {
+    public LlenarCola(ArrayList<Cliente> colaCliente, JPanel contenedorClientes, int cantidadUsuarios) {
         this.colaCliente = colaCliente;
         this.contenedorClientes = contenedorClientes;
         this.cantidadUsuarios = cantidadUsuarios;
@@ -31,9 +34,10 @@ public class LlenarCola implements Runnable{
     public void run() {
         try {
             for (int i = 0; i < this.cantidadUsuarios; i++) {
-                Cliente cliente = new Cliente();
+                Util util = new Util();
+                ConfigDatePoisson configDate = util.getTime(i);
+                Cliente cliente = new Cliente(configDate.tiempo , configDate.poisson);
                 this.colaCliente.add(cliente);
-                System.out.println("cola " + colaCliente.size());
                 JLabel jLabel = new JLabel("Cliente " + cliente.getId());
                 jLabel.setIcon(user);
                 cliente.setContenedorCliente(jLabel);
