@@ -47,7 +47,7 @@ public class Util {
     
 
     public ConfigDatePoisson getTime(int i) {
-        int poisson = getPoisson(4); // el numero aletorio parala llegada de los usuarios
+        int poisson = getPoissonByClient(4); // el numero aletorio parala llegada de los usuarios
         if (tiemposLLegada.size() > 0){
             Calendar newDate = (Calendar) tiemposLLegada.get(i - 1).clone();
             newDate.add(Calendar.MINUTE, poisson);
@@ -89,8 +89,8 @@ public class Util {
         return number;
     }
     
-    public static double getPoissonByClient (double lambda){
-        return (-(Math.log(1 - new Random().nextDouble())) * (1 / lambda) * 60);
+    public static int getPoissonByClient (double lambda){
+        return (int)(-(Math.log(1 - new Random().nextDouble())) * (1 / lambda) * 60);
     }
 
 }

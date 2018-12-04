@@ -24,6 +24,4 @@ public class ConfigDatePoisson {
         this.poisson = poisson;
     }
         
-        
-        
 }
