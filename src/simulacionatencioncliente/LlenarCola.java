@@ -54,6 +54,7 @@ public class LlenarCola implements Runnable{
                     Util util = new Util();
                     ConfigDatePoisson configDate = util.getTime(numeroUsuariosIngresados);
                     lastDate = configDate.tiempo;
+                    if(!fechaCierre.getTime().after(lastDate.getTime())) break;
                     Cliente cliente = new Cliente(configDate.tiempo , configDate.poisson);
                     System.out.println("onfigDate.tiempo");
                     System.out.println(sdf.format(configDate.tiempo.getTime()));

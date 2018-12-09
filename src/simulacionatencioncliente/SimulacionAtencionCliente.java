@@ -171,7 +171,7 @@ public class SimulacionAtencionCliente {
     
     public void atenderClienteServidor4(ArrayList<Cliente> colaClienteServidor4, ArrayList<Cliente> colaClienteDespachados){
          int tiempoServidor = 7; //tiempo promedio del servidor
-         for (Servidor servidor : servidoresSala3) {
+         for (Servidor servidor : servidoresSala4) {
             Despachador despachador = new Despachador(colaClienteServidor4, colaClienteDespachados, servidor.getConstendorDespacho(), modelo4, tiempoServidor);
             Thread despacharClientes = new Thread(despachador);
             despacharClientes.start();   

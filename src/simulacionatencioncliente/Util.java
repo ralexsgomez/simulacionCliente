@@ -21,27 +21,41 @@ public class Util {
     public static void main(String[] args) {
         Util m = new Util();
 //        int n = 0;
-        for (int i = 0; i < 10; i++){
-//            n = getPoissonRange(5); //con una media de 60
-//            System.out.println("n >>> " + n);
-//            System.out.println(sdf.format(m.getTime(i).getTime()));
-                ConfigDatePoisson configDate = m.getTime(i);
-                Calendar now = Calendar.getInstance();
-                now.set(Calendar.MINUTE, 45);
-                now.set(Calendar.SECOND, 0);
-                now.set(Calendar.HOUR_OF_DAY, 16);
-        
-                Cliente cliente = new Cliente(now, configDate.poisson);
-//                Cliente client = Cliente.class
-                System.out.println("usuario agregar "+ cliente.getAletorioLLegada());
-                clientes.add(cliente);
-        }
-            System.out.println(">>>>>>>");
-            for (int i = 0; i < clientes.size(); i++) {
-                System.out.println("usuario agregar "+ clientes.get(i).getTiempollegadaString());
-//                System.out.println("usuario agregar "+ otralista.get(i));
-        }
+//        for (int i = 0; i < 10; i++){
+////            n = getPoissonRange(5); //con una media de 60
+////            System.out.println("n >>> " + n);
+////            System.out.println(sdf.format(m.getTime(i).getTime()));
+//                ConfigDatePoisson configDate = m.getTime(i);
+//                Calendar now = Calendar.getInstance();
+//                now.set(Calendar.MINUTE, 45);
+//                now.set(Calendar.SECOND, 0);
+//                now.set(Calendar.HOUR_OF_DAY, 16);
+//        
+//                Cliente cliente = new Cliente(now, configDate.poisson);
+////                Cliente client = Cliente.class
+//                System.out.println("usuario agregar "+ cliente.getAletorioLLegada());
+//                clientes.add(cliente);
+//        }
+//            System.out.println(">>>>>>>");
+//            for (int i = 0; i < clientes.size(); i++) {
+//                System.out.println("usuario agregar "+ clientes.get(i).getTiempollegadaString());
+////                System.out.println("usuario agregar "+ otralista.get(i));
+//        }
 
+                Calendar fechaFin = Calendar.getInstance();
+                fechaFin.set(Calendar.MINUTE, 44);
+                fechaFin.set(Calendar.SECOND, 0);
+                fechaFin.set(Calendar.HOUR_OF_DAY, 16);
+                
+                Calendar fechaAntes = Calendar.getInstance();
+                fechaAntes.set(Calendar.MINUTE, 46);
+                fechaAntes.set(Calendar.SECOND, 0);
+                fechaAntes.set(Calendar.HOUR_OF_DAY, 16);
+                
+                System.out.println("fecha fin " + sdf.format(fechaFin.getTime()));
+                System.out.println("fecha antes " + sdf.format(fechaAntes.getTime()));
+        
+                System.out.println(">>> "+ !fechaFin.getTime().after(fechaAntes.getTime()));
                
     }
     
