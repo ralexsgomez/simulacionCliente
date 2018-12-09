@@ -27,9 +27,9 @@ public class Util {
 //            System.out.println(sdf.format(m.getTime(i).getTime()));
                 ConfigDatePoisson configDate = m.getTime(i);
                 Calendar now = Calendar.getInstance();
-                now.set(Calendar.MINUTE, getPoisson(i));
+                now.set(Calendar.MINUTE, 45);
                 now.set(Calendar.SECOND, 0);
-                now.set(Calendar.HOUR_OF_DAY, 8);
+                now.set(Calendar.HOUR_OF_DAY, 16);
         
                 Cliente cliente = new Cliente(now, configDate.poisson);
 //                Cliente client = Cliente.class
